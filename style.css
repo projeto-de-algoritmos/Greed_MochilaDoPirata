@@ -1,23 +1,95 @@
-body {
-  font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+* {
+  box-sizing:border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-#container {
-  max-width: 800px;
+.wrapper {
+  width: calc(100vw - 40px);
+  max-width: 350px;
   margin: 0 auto;
   padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 30px -2px rgba(0, 0, 0, 0.2);
 }
 
-#itemTable {
+h1 {
+  text-align: center;
   margin-bottom: 20px;
+  font-size: 20px;
+  color: #263238;
+  line-height: 30px;
 }
 
-#itemTable th,
-#itemTable td {
-  padding: 8px;
+.insert {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  grid-column-gap: 20px;
 }
 
-#calculateButton {
-  padding: 10px 20px;
+button {
+  grid-column: 1 / -2;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border: 2px solid;
+  padding-left: 10px;
+  border-image: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+  border-image-slice: 1;
   font-size: 16px;
+  color: #263238;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  border: none;
+  color: #fff;
+  line-height: 50px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+#result {
+  width: 100%;
+  height: 50px;
+  background: #263238;
+  border-radius: 4px;
+  box-shadow: 0 4px 30px -2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 50px;
+}
+
+table {
+  width: 100%;
+  background: #263238;
+  border-collapse: collapse;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 30px -2px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  padding: 10px 0;
+  border: 1.5px solid #263238;
+}
+
+th {
+  background: #263238;
 }
