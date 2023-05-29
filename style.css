@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+#container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#itemTable {
+  margin-bottom: 20px;
+}
+
+#itemTable th,
+#itemTable td {
+  padding: 8px;
+}
+
+#calculateButton {
+  padding: 10px 20px;
+  font-size: 16px;
+}
