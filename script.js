@@ -1,115 +1,78 @@
-function createItemRow() {
-  var row = document.createElement('tr');
-  var weightCell = document.createElement('td');
-  var valueCell = document.createElement('td');
-  var ratioCell = document.createElement('td');
-  
-  var weightInput = document.createElement('input');
-  weightInput.type = 'number';
-  weightInput.min = '0';
-  
-  var valueInput = document.createElement('input');
-  valueInput.type = 'number';
-  valueInput.min = '0';
-  
-  weightCell.appendChild(weightInput);
-  valueCell.appendChild(valueInput);
-  row.appendChild(weightCell);
-  row.appendChild(valueCell);
-  row.appendChild(ratioCell);
-  
-  return row;
-}
-
-function updateRatioValues() {
-  var rows = document.querySelectorAll('#itemTable tbody tr');
-  rows.forEach(function(row) {
-    var weightInput = row.querySelector('input[type="number"]');
-    var valueInput = weightInput.nextElementSibling.querySelector('input[type="number"]');
-    var ratioCell = valueInput.nextElementSibling;
-    
-    var weight = parseFloat(weightInput.value) || 0;
-    var value = parseFloat(valueInput.value) || 0;
-    var ratio = (value / weight).toFixed(2) || 0;
-    
-    ratioCell.textContent = ratio;
+document.getElementById('runButton').addEventListener('click', function() {
+  // Obter os valores de entrada do usuário
+  var input = document.getElementById('items').value.split(' ').map(function(item) {
+    return parseFloat(item);
   });
-}
 
-function calculateKnapsack() {
-  var rows = document.querySelectorAll('#itemTable tbody tr');
-  var itemCount = rows.length;
-  
-  var weights = [];
-  var values = [];
-  
-  rows.forEach(function(row) {
-    var weightInput = row.querySelector('input[type="number"]');
-    var valueInput = weightInput.nextElementSibling.querySelector('input[type="number"]');
-    
-    var weight = parseFloat(weightInput.value) || 0;
-    var value = parseFloat(valueInput.value) || 0;
-    
-    weights.push(weight);
-    values.push(value);
-  });
-  
-  var maxWeight = 10; // Peso máximo da mochila
-  
-  // Implementação do algoritmo da Mochila
-  var dp = new Array(itemCount + 1);
-  for (var i = 0; i <= itemCount; i++) {
-    dp[i] = new Array(maxWeight + 1).fill(0);
+  // Inicializar arrays para lucro, peso, fração, x e capacidade
+  var lucro = [];
+  var peso = [];
+  var fracao = [];
+  var x = [];
+  var capacidade = parseFloat(document.getElementById('capacity').value);
+  var resultado = 0;
+
+  // Preencher os arrays de lucro e peso a partir da entrada do usuário
+  for (var i = 0; i < input.length; i++) {
+    if (i % 2 === 0) {
+      peso.push(input[i]);
+    } else {
+      lucro.push(input[i]);
+    }
   }
-  
-  for (var i = 1; i <= itemCount; i++) {
-    for (var j = 1; j <= maxWeight; j++) {
-      if (weights[i - 1] <= j) {
-        dp[i][j] = Math.max(values[i - 1] + dp[i - 1][j - weights[i - 1]], dp[i - 1][j]);
-      } else {
-        dp[i][j] = dp[i - 1][j];
+
+  // Calcular a fração de lucro/peso para cada item
+  for (var i = 0; i < input.length / 2; i++) {
+    fracao.push(lucro[i] / peso[i]);
+  }
+
+  // Ordenar as frações em ordem decrescente
+  fracao.sort(function(a, b) {
+    return b - a;
+  });
+
+  // Ordenar os arrays de peso e lucro de acordo com a ordem das frações
+  for (var i = 0; i < input.length; i++) {
+    for (var j = 0; j < input.length; j++) {
+      if (lucro[j] / peso[j] === fracao[i]) {
+        var tempLucro = lucro[i];
+        var tempPeso = peso[i];
+        lucro[i] = lucro[j];
+        peso[i] = peso[j];
+        lucro[j] = tempLucro;
+        peso[j] = tempPeso;
       }
     }
   }
-  
-  var bestValue = dp[itemCount][maxWeight];
-  var calculations = 'Cálculos intermediários:<br>';
-  
-  var i = itemCount;
-  var j = maxWeight;
-  while (i > 0 && j > 0) {
-    if (dp[i][j] != dp[i - 1][j]) {
-      calculations += 'Item ' + i + ': peso=' + weights[i - 1] + ', valor=' + values[i - 1] + '<br>';
-      i--;
-      j -= weights[i];
+
+  // Selecionar o item ou fração dele até que a capacidade seja atingida
+  for (var i = 0; i < input.length / 2; i++) {
+    capacidade -= peso[i];
+    if (capacidade >= 0) {
+      x.push(1);
     } else {
-      i--;
+      x.push(Math.abs(capacidade + peso[i]) / peso[i]);
+      break;
     }
   }
-  
-  document.getElementById('bestValue').textContent = bestValue;
-  document.getElementById('calculations').innerHTML = calculations;
-}
 
-var itemCountSelect = document.getElementById('itemCount');
-var itemTableBody = document.querySelector('#itemTable tbody');
-var calculateButton = document.getElementById('calculateButton');
+  // Limpar a tabela de resultados
+  var tableBody = document.querySelector('table tbody');
+  tableBody.innerHTML = '';
 
-itemCountSelect.addEventListener('change', function() {
-  var itemCount = parseInt(itemCountSelect.value);
-  
-  itemTableBody.innerHTML = '';
-  for (var i = 0; i < itemCount; i++) {
-    itemTableBody.appendChild(createItemRow());
+  // Calcular o resultado e exibir os valores na tabela
+  for (var i = 0; i < input.length / 2; i++) {
+    if (x[i] === undefined) {
+      break;
+    } else {
+      resultado += lucro[i] * x[i];
+      var newRow = document.createElement('tr');
+      newRow.innerHTML = '<td>' + lucro[i] + '</td><td>' + peso[i] + '</td><td>' + fracao[i].toPrecision(3) + '</td><td>' + (x[i] % 1 === 0 ? x[i] : x[i].toPrecision(4)) + '</td><td>' + resultado.toPrecision(4) + '</td>';
+      tableBody.appendChild(newRow);
+    }
   }
-  
-  updateRatioValues();
-});
 
-itemTableBody.addEventListener('input', function() {
-  updateRatioValues();
-});
-
-calculateButton.addEventListener('click', function() {
-  calculateKnapsack();
+  // Exibir o resultado final
+  var resultElement = document.getElementById('result');
+  resultElement.innerText = resultado.toPrecision(4);
 });
