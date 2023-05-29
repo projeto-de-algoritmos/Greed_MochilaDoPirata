@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Algoritmo da Mochila</title>
+  <title>Problema da Mochila</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div id="container">
-    <h2>Algoritmo da Mochila</h2>
-    <div>
-      <label for="itemCount">Quantidade de itens:</label>
-      <select id="itemCount">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
+  <div class="wrapper">
+    <h1>Insira o peso primeiro, seguido pelo seu lucro no primeiro campo, e a capacidade no segundo campo!</h1>
+    <div class="insert">
+      <input type="text" placeholder="'peso lucro peso lucro...'" value="10 5 20 12 30 17" id="items">
+      <input type="text" placeholder="Capacidade" value="45" id="capacity">
+      <button id="runButton">Executar</button>
     </div>
-
-    <table id="itemTable">
-      <thead>
-        <tr>
-          <th>Peso</th>
-          <th>Valor</th>
-          <th>Valor/Peso</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
+    <div id="result" class="output">Resultado</div>
+    <table>
+      <tr>
+        <th>Lucro</th>
+        <th>Peso</th>
+        <th>L/P</th>
+        <th>X</th>
+        <th>Resultado</th>
+      </tr>
     </table>
-
-    <button id="calculateButton">Calcular</button>
-
-    <h3>Melhor valor transportado:</h3>
-    <div id="bestValue"></div>
-
-    <h3>Cálculos:</h3>
-    <div id="calculations"></div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
