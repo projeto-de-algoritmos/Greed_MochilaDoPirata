@@ -36,7 +36,8 @@
 
       <div class="item control1" id="obstacle-selector">
         <label for="num-obstacles">Número de obstáculos:</label>
-        <input type="number" id="num-obstacles" min="0" max="100" value="0" oninput="limit_input_obstacle(this)">
+        <input type="number" id="num-obstacles" min="0" max="100" value="0" oninput="limit_input_obstacle(this)"
+          style="width: 70px;">
         <button class="custom-btn btn-search" onclick="update_obstacles()">Confirmar</button>
         <button class="custom-btn btn-search" onclick="restart_obstacles()">Embaralhar Obstáculos</button>
       </div>
@@ -44,11 +45,13 @@
       <div class="item control2" id="xy-selector">
         <div>
           <label for="grid-size-x">Tamanho X:</label>
-          <input type="number" id="grid-size-x" min="1" max="20" value="10" oninput="limit_input_x(this)">
+          <input type="number" id="grid-size-x" min="1" max="20" value="10" oninput="limit_input_x(this)"
+            style="width: 53px;">
         </div>
         <div>
           <label for="grid-size-y">Tamanho Y:</label>
-          <input type="number" id="grid-size-y" min="1" max="16" value="10" oninput="limit_input_y(this)">
+          <input type="number" id="grid-size-y" min="1" max="16" value="10" oninput="limit_input_y(this)"
+            style="width: 53px;">
         </div>
         <button class="custom-btn btn-search" onclick="change_grid_size()">Confirmar</button>
       </div>
