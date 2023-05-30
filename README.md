@@ -27,8 +27,28 @@ No caso do nosso projeto, a "mochila" do pirata seria justamente um baú, na qua
 
 **Conteúdo:** Knapsack.
 
+Vídeo contendo explicação das modificações feitas para a entrega da unidade 3. Foco em apresentar as novidades implementadas. 
+
+(Para melhor contexto do projeto em geral assistir o vídeo de apresentação complementar).
+
 <a href="https://www.youtube.com/watch?v=q8ADh35hU58" target="_blank">
   <img src="assets/link_video3.png" alt="Apresentação">
+</a>
+
+## Vídeo de Apresentação Complementar (Grafos 1 e 2)
+
+Vídeo complementar contendo explicação da entrega feita para a unidade 1 e 2. 
+
+**Conteúdo:** Depth First Search (DFS) ou Breadth First Search (BFS)
+
+<a href="https://www.youtube.com/watch?v=L_0gyZoNA6s" target="_blank">
+  <img src="assets/link_video.png" alt="Apresentação">
+</a>
+
+**Conteúdo:** Dijkstra.
+
+<a href="https://www.youtube.com/watch?v=q8ADh35hU58" target="_blank">
+  <img src="assets/link_video2.png" alt="Apresentação">
 </a>
 
 ## Instalação 
