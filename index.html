@@ -2,14 +2,16 @@
 <html>
 
 <head>
-  <title>Mochila do Alquimista</title>
+  <title>Mochila do Pirata</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 
 <body>
   <div class="logo">
-    <img src="https://cdn.leonardo.ai/users/2d5b73e7-ee7b-47e4-9540-a3a3a88e42bd/generations/4c44127b-7af3-477b-bdbc-3b1191cbe889/variations/Default_Design_a_logo_written_A_Mochila_do_Alquimista_featurin_0_4c44127b-7af3-477b-bdbc-3b1191cbe889_1.jpg" alt="A Mochila do Alquimista Logo">
-    <h1>Mochila do Alquimista</h1>
+    <img src="https://images.squarespace-cdn.com/content/v1/5c86919db7c92c1344bc8064/1679641884854-K6H8YJUYJ61QZVMIG5VB/captChestIdleHit.gif?format=500w" alt="A Mochila do Pirata Logo">
+    <h1>Mochila do Pirata</h1>
   </div>
   <div class="wrapper">
     <h1>Insira o peso primeiro, seguido pelo seu lucro no primeiro campo, e a capacidade no segundo campo!</h1>
@@ -18,15 +20,20 @@
       <input type="text" placeholder="Capacidade" value="45" id="capacity">
       <button id="runButton">Executar</button>
     </div>
-    <div id="result" class="output">Resultado</div>
+    <div class="output">
+      <h2>Resultado</h2>
+      <div id="result">-</div>
+    </div>
     <table>
-      <tr>
-        <th>Lucro</th>
-        <th>Peso</th>
-        <th>L/P</th>
-        <th>X</th>
-        <th>Resultado</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Lucro</th>
+          <th>Peso</th>
+          <th>L/P</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
     </table>
   </div>
   <script src="script.js"></script>
