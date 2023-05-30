@@ -406,7 +406,7 @@ table,
 
 .container-mochila {
   margin-bottom: 40px;
-  max-width: 400px;
+  max-width: 600px;
   padding: 20px;
   background-image: url(assets/wood.jpg);
   background-size: auto 40%;
@@ -416,6 +416,17 @@ table,
 }
 
 h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  border: 6px solid var(--dark-brown);
+  border-radius: 10px;
+  background-color: #cd8f2b;
+  color: var(--dark-brown);
+  line-height: 30px;
+}
+
+h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 20px;
@@ -457,9 +468,8 @@ input {
   padding: 10px;
   border: 6px solid var(--dark-brown);
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 20px;
 }
-
 
 .output h2 {
   margin: 0;

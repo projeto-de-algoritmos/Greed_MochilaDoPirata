@@ -15,11 +15,11 @@
 <body>
   <div class="title-div">
     <div class="box title">
-      <h1 class="title-name">Caça ao <span>Tesouro</span></h1>
+      <h2 class="title-name">Caça ao <span>Tesouro</span></h2>
     </div>
 
     <div class="box title">
-      <h1 class="title-name2">Mochila do <span>Pirata</span></h1>
+      <h2 class="title-name2">Mochila do <span>Pirata</span></h2>
     </div>
   </div>
 
@@ -78,7 +78,16 @@
 
   <div class="box2" id="div2">
     <div class="container-mochila">
-      <h1 for="guide">Insira o peso primeiro, seguido pelo seu lucro no primeiro campo, e a capacidade no segundo campo!
+      <h1 for="guide">1) No primeiro bloco, insira uma sequência de pesos e lucros alternados, separados por espaço (P L
+        P L ...). Esses serão os itens presentes no saque dos piratas.
+        <br>
+        <br>
+        2) No segundo bloco, coloque a capacidade do estoque pirata, ou seja, a quantidade máxima de peso que os piratas
+        podem levar.
+        <br>
+        <br>
+        3) Ao clicar no botão "Analisar", o algoritmo será executado e mostrará o melhor valor que os piratas podem
+        obter, levando em consideração a capacidade do estoque, peso e lucro dos itens.
       </h1>
       <div class="insert">
         <input type="text" placeholder="'peso valor peso valor...'" id="items">
@@ -95,6 +104,7 @@
             <th>Valor</th>
             <th>Peso</th>
             <th>V/P</th>
+            <th>X</th>
             <th>Resultado</th>
           </tr>
         </thead>
