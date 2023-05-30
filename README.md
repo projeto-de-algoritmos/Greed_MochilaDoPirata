@@ -31,7 +31,7 @@ Vídeo contendo explicação das modificações feitas para a entrega da unidade
 
 (Para melhor contexto do projeto em geral assistir o vídeo de apresentação complementar).
 
-<a href="https://www.youtube.com/watch?v=q8ADh35hU58" target="_blank">
+<a href="https://www.youtube.com/watch?v=wWZEXSx-Xvw" target="_blank">
   <img src="assets/print2-entrega3.png" alt="Apresentação">
 </a>
 
