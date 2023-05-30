@@ -193,6 +193,7 @@ h1 span {
 .btn-div {
   margin-top: 40px;
   border-radius: 10px;
+  border-color: #06283d;
   width: fit-content;
   background-image: url("assets/paper.png");
   background-size: cover;
