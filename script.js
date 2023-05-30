@@ -67,7 +67,7 @@ document.getElementById('runButton').addEventListener('click', function() {
     } else {
       resultado += lucro[i] * x[i];
       var newRow = document.createElement('tr');
-      newRow.innerHTML = '<td>' + lucro[i] + '</td><td>' + peso[i] + '</td><td>' + fracao[i].toPrecision(3) + '</td><td>' + (x[i] % 1 === 0 ? x[i] : x[i].toPrecision(4)) + '</td><td>' + resultado.toPrecision(4) + '</td>';
+      newRow.innerHTML = '<td>' + lucro[i] + '</td><td>' + peso[i] + '</td><td>' + fracao[i].toPrecision(3) + '</td><td>' + resultado.toPrecision(4) + '</td>';
       tableBody.appendChild(newRow);
     }
   }
@@ -76,3 +76,5 @@ document.getElementById('runButton').addEventListener('click', function() {
   var resultElement = document.getElementById('result');
   resultElement.innerText = resultado.toPrecision(4);
 });
+
+var tableBody = document.querySelector('table tbody');
